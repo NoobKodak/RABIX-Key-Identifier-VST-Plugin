@@ -12,6 +12,34 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+function SiteNav() {
+  const linkCls = "text-sm text-neutral-600 hover:text-black transition-colors";
+  const active = { className: "text-sm text-black font-semibold" };
+  return (
+    <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur border-b border-neutral-100">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <Link to="/" className="text-lg font-bold tracking-tight text-black">Rabix</Link>
+        <div className="flex items-center gap-6">
+          <Link to="/" className={linkCls} activeOptions={{ exact: true }} activeProps={active}>Home</Link>
+          <Link to="/about" className={linkCls} activeProps={active}>About</Link>
+          <Link to="/whats-new" className={linkCls} activeProps={active}>What's New</Link>
+          <Link to="/download" className={linkCls} activeProps={active}>Download</Link>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t border-neutral-100 py-8 mt-24">
+      <div className="mx-auto max-w-6xl px-6 text-center text-sm text-neutral-500">
+        © 2026 NOOBKODAK. All rights reserved.
+      </div>
+    </footer>
+  );
+}
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,14 +105,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Rabix — Real-Time Key & BPM Detection for Producers" },
+      { name: "description", content: "Rabix is a lightweight VST3 plugin that detects key, relative key, and BPM in real time inside your DAW." },
+      { name: "author", content: "NOOBKODAK" },
+      { property: "og:title", content: "Rabix — Real-Time Key & BPM Detection" },
+      { property: "og:description", content: "Lightweight VST3 plugin for real-time key and BPM detection." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -119,8 +146,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col bg-white text-black font-sans">
+        <SiteNav />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
     </QueryClientProvider>
   );
 }
