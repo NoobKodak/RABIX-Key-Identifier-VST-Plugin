@@ -148,3 +148,68 @@
     color: var(--color-foreground);
   }
 }
+
+/* ─── Magic UI utilities ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.15); }
+}
+
+@utility hover-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -20px color-mix(in oklab, var(--secondary) 25%, transparent);
+  }
+}
+
+@utility hover-tilt {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover { transform: perspective(900px) rotateX(2deg) rotateY(-2deg) scale(1.02); }
+}
+
+@utility shimmer-btn {
+  background-image: linear-gradient(110deg, var(--secondary) 0%, color-mix(in oklab, var(--secondary) 60%, white) 45%, var(--secondary) 90%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  &:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 30px -8px color-mix(in oklab, var(--secondary) 55%, transparent);
+  }
+}
+
+@utility float-slow { animation: float 6s ease-in-out infinite; }
+@utility animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@utility animate-aurora { animation: aurora 12s ease-in-out infinite; }
+
+@utility magic-border {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--secondary) 60%, transparent), transparent 60%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  &:hover::before { opacity: 1; }
+}

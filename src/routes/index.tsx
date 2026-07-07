@@ -18,29 +18,34 @@ const features = [
 function Index() {
   return (
     <div>
-      <section className="mx-auto max-w-5xl px-6 pt-24 pb-20 text-center sm:pt-32">
-        <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">
+      <section className="relative mx-auto max-w-5xl px-6 pt-24 pb-20 text-center sm:pt-32 overflow-hidden">
+        {/* Aurora glow */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 flex justify-center">
+          <div className="animate-aurora absolute top-10 h-72 w-72 rounded-full bg-secondary/20 blur-3xl" />
+          <div className="animate-aurora absolute top-32 h-64 w-64 rounded-full bg-secondary/10 blur-3xl [animation-delay:-4s]" />
+        </div>
+        <h1 className="animate-fade-up text-4xl font-bold tracking-tight text-black sm:text-6xl">
           Rabix — Real-Time Key & BPM<br className="hidden sm:block" /> Detection for Producers
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
+        <p className="animate-fade-up mx-auto mt-6 max-w-2xl text-lg text-neutral-600 [animation-delay:120ms]">
           Rabix is a lightweight VST3 plugin that detects the key, relative key, and BPM of audio playing through your DAW in real time.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <div className="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-3 [animation-delay:240ms]">
           <Link
             to="/download"
-            className="rounded-full bg-secondary px-7 py-3 text-sm font-medium text-secondary-foreground shadow-sm transition hover:bg-[color:var(--secondary-hover)]"
+            className="shimmer-btn rounded-full px-7 py-3 text-sm font-medium text-secondary-foreground shadow-sm"
           >
             Download Rabix
           </Link>
           <a
             href="#features"
-            className="rounded-full border border-neutral-200 bg-white px-7 py-3 text-sm font-medium text-black transition hover:bg-neutral-50"
+            className="rounded-full border border-neutral-200 bg-white px-7 py-3 text-sm font-medium text-black transition hover:-translate-y-0.5 hover:bg-neutral-50 hover:shadow-md"
           >
             Learn More
           </a>
         </div>
         <div className="mt-16 flex justify-center">
-          <img src={macbookHero.url} alt="Rabix running in a DAW" className="w-full max-w-3xl h-auto" />
+          <img src={macbookHero.url} alt="Rabix running in a DAW" className="float-slow hover-tilt w-full max-w-3xl h-auto" />
         </div>
       </section>
 
@@ -53,7 +58,7 @@ function Index() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="rounded-3xl border border-neutral-100 bg-white p-8 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] transition hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)]"
+              className="magic-border hover-lift rounded-3xl border border-neutral-100 bg-white p-8 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)]"
             >
               <h3 className="text-lg font-semibold text-black">{f.title}</h3>
               <p className="mt-2 text-sm text-neutral-600">{f.desc}</p>
@@ -61,7 +66,7 @@ function Index() {
           ))}
         </div>
         <div className="mt-20 flex justify-center">
-          <img src={macbookAlt.url} alt="Rabix interface preview" className="w-full max-w-3xl h-auto" />
+          <img src={macbookAlt.url} alt="Rabix interface preview" className="float-slow hover-tilt w-full max-w-3xl h-auto [animation-delay:-3s]" />
         </div>
       </section>
     </div>
