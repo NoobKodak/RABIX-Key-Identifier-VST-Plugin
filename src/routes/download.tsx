@@ -27,13 +27,13 @@ function Download() {
         ].map((p) => (
           <div
             key={p.os}
-            className="rounded-3xl border border-neutral-100 bg-white p-10 text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)] transition hover:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)]"
+            className="magic-border hover-lift rounded-3xl border border-neutral-100 bg-white p-10 text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.06)]"
           >
             <h2 className="text-2xl font-semibold text-black">{p.os}</h2>
             <p className="mt-2 text-sm text-neutral-500">Rabix v0.1.0 Alpha · VST3</p>
             <a
               href="#"
-              className="mt-8 inline-block rounded-full bg-secondary px-7 py-3 text-sm font-medium text-secondary-foreground transition hover:bg-[color:var(--secondary-hover)]"
+              className="shimmer-btn mt-8 inline-block rounded-full px-7 py-3 text-sm font-medium text-secondary-foreground"
             >
               {p.btn}
             </a>
@@ -41,14 +41,14 @@ function Download() {
         ))}
       </div>
 
-      <div className="mt-16 rounded-3xl border border-neutral-100 bg-neutral-50 p-10 text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.04)] sm:p-14">
+      <div className="magic-border mt-16 rounded-3xl border border-neutral-100 bg-neutral-50 p-10 text-center shadow-[0_4px_24px_-8px_rgba(0,0,0,0.04)] sm:p-14">
         <h2 className="text-3xl font-bold text-black">Support Rabix</h2>
         <p className="mx-auto mt-4 max-w-xl text-neutral-600">
           Rabix is free to download. If you find it helpful, please consider supporting the developer. Any amount helps continue development and future updates.
         </p>
         <a
           href="#"
-          className="mt-8 inline-block rounded-full border border-secondary bg-white px-7 py-3 text-sm font-medium text-secondary transition hover:bg-secondary hover:text-secondary-foreground"
+          className="mt-8 inline-block rounded-full border border-secondary bg-white px-7 py-3 text-sm font-medium text-secondary transition hover:-translate-y-0.5 hover:bg-secondary hover:text-secondary-foreground hover:shadow-lg"
         >
           Donate
         </a>
