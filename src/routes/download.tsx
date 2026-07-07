@@ -33,7 +33,7 @@ function Download() {
             <p className="mt-2 text-sm text-neutral-500">Rabix v0.1.0 Alpha · VST3</p>
             <a
               href="#"
-              className="mt-8 inline-block rounded-full bg-black px-7 py-3 text-sm font-medium text-white transition hover:bg-neutral-800"
+              className="mt-8 inline-block rounded-full bg-secondary px-7 py-3 text-sm font-medium text-secondary-foreground transition hover:bg-[color:var(--secondary-hover)]"
             >
               {p.btn}
             </a>
@@ -48,7 +48,7 @@ function Download() {
         </p>
         <a
           href="#"
-          className="mt-8 inline-block rounded-full border border-black bg-white px-7 py-3 text-sm font-medium text-black transition hover:bg-black hover:text-white"
+          className="mt-8 inline-block rounded-full border border-secondary bg-white px-7 py-3 text-sm font-medium text-secondary transition hover:bg-secondary hover:text-secondary-foreground"
         >
           Donate
         </a>

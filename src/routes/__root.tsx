@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import logoRabix from "../assets/logo-rabix.svg.asset.json";
 
 function SiteNav() {
   const linkCls = "text-sm text-neutral-600 hover:text-black transition-colors";
@@ -18,7 +19,9 @@ function SiteNav() {
   return (
     <header className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur border-b border-neutral-100">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="text-lg font-bold tracking-tight text-black">Rabix</Link>
+        <Link to="/" className="flex items-center">
+          <img src={logoRabix.url} alt="Rabix" className="h-7 w-auto" />
+        </Link>
         <div className="flex items-center gap-6">
           <Link to="/" className={linkCls} activeOptions={{ exact: true }} activeProps={active}>Home</Link>
           <Link to="/about" className={linkCls} activeProps={active}>About</Link>
