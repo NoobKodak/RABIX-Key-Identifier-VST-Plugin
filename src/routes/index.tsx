@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import macbookHero from "../assets/macbook-3.svg.asset.json";
+import macbookAlt from "../assets/macbook-9.svg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,7 +28,7 @@ function Index() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/download"
-            className="rounded-full bg-black px-7 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-800"
+            className="rounded-full bg-secondary px-7 py-3 text-sm font-medium text-secondary-foreground shadow-sm transition hover:bg-[color:var(--secondary-hover)]"
           >
             Download Rabix
           </Link>
@@ -36,6 +38,9 @@ function Index() {
           >
             Learn More
           </a>
+        </div>
+        <div className="mt-16 flex justify-center">
+          <img src={macbookHero.url} alt="Rabix running in a DAW" className="w-full max-w-3xl h-auto" />
         </div>
       </section>
 
@@ -54,6 +59,9 @@ function Index() {
               <p className="mt-2 text-sm text-neutral-600">{f.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-20 flex justify-center">
+          <img src={macbookAlt.url} alt="Rabix interface preview" className="w-full max-w-3xl h-auto" />
         </div>
       </section>
     </div>
